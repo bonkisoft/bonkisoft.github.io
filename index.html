@@ -1,482 +1,355 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Bonkisoft — Games & Apps. Independent game development studio creating games and digital experiences.">
+    <title>Bonkisoft — Games & Apps</title>
 
-  <title>Bonkisoft — Games & Apps</title>
+    <meta name="description" content="Bonkisoft creates games and applications with thoughtful design, engaging experiences and attention to detail.">
 
-  <link rel="icon" type="image/png" href="assets/bonkisoft-logo1.png">
+    <meta name="theme-color" content="#ed101b">
 
-  <style>
-    :root {
-      --red: #ed101b;
-      --ink: #292929;
-      --muted: #686868;
-      --line: #e8e8e8;
-      --paper: #ffffff;
-      --soft: #f7f7f7;
-      --content: 1120px;
-    }
+    <link rel="icon" type="image/png" href="assets/bonkisoft-logo1.png">
 
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        :root {
+            --red: #ed101b;
+            --dark: #202020;
+            --gray: #666666;
+            --light: #f5f5f5;
+            --white: #ffffff;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    a {
-      color: inherit;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.6;
+        }
 
-    .container {
-      width: min(var(--content), calc(100% - 44px));
-      margin-inline: auto;
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    /* HEADER */
+        .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
 
-    .site-header {
-      position: relative;
-      z-index: 2;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
-    }
+        /* HEADER */
 
-    .nav {
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+        header {
+            background: var(--white);
+            border-bottom: 1px solid #eeeeee;
+        }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-    }
+        .header-inner {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
 
-    .brand img {
-      display: block;
-      width: 172px;
-      height: auto;
-    }
+        .logo img {
+            display: block;
+            width: 155px;
+            height: auto;
+        }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: #444;
-      font-size: .94rem;
-      font-weight: 600;
-      transition: color .2s ease;
-    }
+        nav a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
 
-    .nav-links a:hover {
-      color: var(--red);
-    }
+        nav a:hover {
+            color: var(--red);
+        }
 
-    .nav-links .nav-cta {
-      border: 1px solid var(--red);
-      border-radius: 999px;
-      padding: 9px 18px;
-      color: var(--red);
-    }
+        /* HERO */
 
-    .nav-links .nav-cta:hover {
-      color: #fff;
-      background: var(--red);
-    }
+        .hero {
+            padding: 45px 0 35px;
+            background: var(--light);
+        }
 
-    /* HERO */
+        .hero-image {
+            overflow: hidden;
+            border-radius: 12px;
+        }
 
-    .hero {
-      padding: 28px 0 0;
-    }
+        .hero-art {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
 
-    .hero-art {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
+        /* INTRODUCTION */
 
-    /* INTRO */
+        .intro {
+            padding: 75px 0;
+            text-align: center;
+        }
 
-    .intro {
-      max-width: 760px;
-      margin: 58px auto 66px;
-      text-align: center;
-      padding: 0 18px;
-    }
+        .intro h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
 
-    .eyebrow {
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      font-size: .76rem;
-      font-weight: 800;
-      margin: 0 0 12px;
-    }
+        .intro h1 span {
+            color: var(--red);
+        }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3.35rem);
-      letter-spacing: -.045em;
-      line-height: 1.12;
-      margin: 0 0 18px;
-      font-weight: 700;
-    }
+        .intro p {
+            max-width: 720px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 17px;
+        }
 
-    .intro p {
-      color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.14rem);
-      margin: 0;
-    }
+        /* ABOUT */
 
-    /* SECTIONS */
+        .about {
+            padding: 65px 0;
+            background: var(--light);
+            text-align: center;
+        }
 
-    .section {
-      padding: 66px 0;
-    }
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
 
-    .section-soft {
-      background: var(--soft);
-      border-top: 1px solid #f0f0f0;
-      border-bottom: 1px solid #f0f0f0;
-    }
+        .section-text {
+            max-width: 750px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 16px;
+        }
 
-    .section-heading {
-      text-align: center;
-      margin: 0 auto 34px;
-    }
+        /* GAMES */
 
-    .section-heading h2 {
-      font-size: clamp(1.65rem, 3vw, 2.25rem);
-      line-height: 1.2;
-      letter-spacing: -.03em;
-      margin: 0 0 10px;
-    }
+        .games {
+            padding: 75px 0;
+            text-align: center;
+        }
 
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-    }
+        .game-card {
+            max-width: 650px;
+            margin: 35px auto 0;
+            padding: 35px;
+            background: var(--light);
+            border-radius: 12px;
+        }
 
-    /* ABOUT */
+        .game-card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
 
-    .about-copy {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      color: #555;
-      font-size: 1.04rem;
-    }
+        .game-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
 
-    /* GAME CARD */
+        .play-button {
+            display: inline-block;
+            padding: 13px 27px;
+            background: var(--red);
+            color: var(--white);
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s ease;
+        }
 
-    .game-card {
-      width: min(760px, 100%);
-      margin: 0 auto;
-      padding: 30px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.045);
-    }
+        .play-button:hover {
+            background: #c90d17;
+        }
 
-    .game-card h3 {
-      margin: 0 0 7px;
-      font-size: 1.45rem;
-      letter-spacing: -.02em;
-    }
+        /* FOOTER */
 
-    .game-card p {
-      margin: 0 0 17px;
-      color: var(--muted);
-    }
+        footer {
+            padding: 28px 0;
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
 
-    .play-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 10px 19px;
-      background: var(--red);
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform .2s ease, background .2s ease;
-    }
+        footer p {
+            font-size: 13px;
+            color: #cccccc;
+        }
 
-    .play-link:hover {
-      background: #c90c16;
-      transform: translateY(-1px);
-    }
+        /* MOBILE */
 
-    /* FOOTER */
+        @media (max-width: 650px) {
+            .header-inner {
+                flex-direction: column;
+                justify-content: center;
+                padding: 18px 0;
+                gap: 15px;
+            }
 
-    .site-footer {
-      padding: 27px 0;
-    }
+            .logo img {
+                width: 135px;
+            }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      color: #777;
-      font-size: .88rem;
-    }
+            nav {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-    .footer-brand {
-      color: #444;
-      font-weight: 700;
-      letter-spacing: .04em;
-    }
+            nav a {
+                font-size: 13px;
+            }
 
-    /* MOBILE */
+            .hero {
+                padding: 25px 0;
+            }
 
-    @media (max-width: 650px) {
-      .container {
-        width: min(var(--content), calc(100% - 28px));
-      }
+            .intro,
+            .games {
+                padding: 55px 0;
+            }
 
-      .nav {
-        min-height: 70px;
-      }
+            .about {
+                padding: 50px 0;
+            }
 
-      .brand img {
-        width: 142px;
-      }
-
-      .nav-links {
-        gap: 14px;
-      }
-
-      .nav-links a {
-        font-size: .84rem;
-      }
-
-      .nav-links .nav-cta {
-        padding: 7px 11px;
-      }
-
-      .hero {
-        padding-top: 14px;
-      }
-
-      .intro {
-        margin: 40px auto 48px;
-      }
-
-      .section {
-        padding: 48px 0;
-      }
-
-      .game-card {
-        padding: 20px;
-        border-radius: 14px;
-      }
-
-      .game-card h3 {
-        font-size: 1.15rem;
-      }
-
-      .game-card p {
-        font-size: .92rem;
-      }
-
-      .play-link {
-        font-size: .9rem;
-        min-height: 40px;
-        padding: 8px 13px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+            .game-card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
 
-  <header class="site-header">
-    <div class="container nav">
+            <a href="#" class="logo">
+                <img
+                    src="assets/bonkisoft-logo1.png"
+                    alt="Bonkisoft">
+            </a>
 
-      <a class="brand" href="#top" aria-label="Bonkisoft home">
-        <img
-          src="assets/bonkisoft-logo1.png"
-          alt="Bonkisoft">
-      </a>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#games">Games</a>
+                <a href="#games">Discover our game</a>
+            </nav>
 
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#games">Games</a>
-        <a class="nav-cta" href="#games">
-          Discover our game
-        </a>
-      </nav>
-
-    </div>
-  </header>
-
-  <main id="top">
+        </div>
+    </header>
 
     <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-image">
 
-    <section class="hero container" aria-label="Bonkisoft brand">
+            <img
+                class="hero-art"
+                src="assets/bonkisoft-header1.png"
+                alt="Bonkisoft Games and Apps">
 
-      <img
-        class="hero-art"
-        src="assets/bonkisoft-header1.png"
-        alt="Bonkisoft Games & Apps">
-
+        </div>
     </section>
 
-    <!-- INTRO -->
-
+    <!-- INTRODUCTION -->
     <section class="intro">
+        <div class="container">
 
-      <p class="eyebrow">Games & Apps</p>
+            <h1>
+                Ideas brought to life through <span>games.</span>
+            </h1>
 
-      <h1>
-        Ideas brought to life through games.
-      </h1>
+            <p>
+                Welcome to Bonkisoft — an independent game and
+                application studio focused on creating enjoyable
+                digital experiences.
+            </p>
 
-      <p>
-        Bonkisoft is an independent game and app
-        development studio focused on creating
-        enjoyable, accessible digital experiences.
-      </p>
-
+        </div>
     </section>
 
     <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
 
-    <section class="section section-soft" id="about">
+            <h2 class="section-title">About Bonkisoft</h2>
 
-      <div class="container">
-
-        <div class="section-heading">
-
-          <p class="eyebrow">Who we are</p>
-
-          <h2>About Bonkisoft</h2>
+            <p class="section-text">
+                We create games and applications with an emphasis
+                on thoughtful design, engaging experiences and
+                attention to detail. Our goal is to make digital
+                experiences that are enjoyable to explore and
+                easy to access.
+            </p>
 
         </div>
-
-        <p class="about-copy">
-          We create games and applications with an
-          emphasis on thoughtful design, engaging
-          experiences and attention to detail.
-          Our goal is to make digital experiences
-          that are enjoyable to explore and easy
-          to access.
-        </p>
-
-      </div>
-
     </section>
 
     <!-- GAMES -->
+    <section class="games" id="games">
+        <div class="container">
 
-    <section class="section" id="games">
+            <h2 class="section-title">Our Games</h2>
 
-      <div class="container">
+            <div class="game-card">
 
-        <div class="section-heading">
+                <h3>Otter's Puzzle</h3>
 
-          <p class="eyebrow">Explore</p>
+                <p>
+                    A relaxing mobile sliding puzzle game.
+                    Challenge your mind, move the tiles and
+                    enjoy the satisfaction of solving each puzzle.
+                </p>
 
-          <h2>Our Games</h2>
+                <a
+                    class="play-button"
+                    href="https://play.google.com/store/apps/details?id=com.bonkisoft.otterspuzzle"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Get it on Google Play
+                </a>
 
-          <p>Discover our available game.</p>
+            </div>
 
         </div>
-
-        <article class="game-card">
-
-          <h3>Otter’s Puzzle</h3>
-
-          <p>
-            A relaxing mobile sliding puzzle game.
-            Move the tiles, solve the picture and
-            enjoy the challenge.
-          </p>
-
-          <a
-            class="play-link"
-            href="https://play.google.com/store/apps/details?id=com.bonkisoft.otterspuzzle"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Get it on Google Play
-
-          </a>
-
-        </article>
-
-      </div>
-
     </section>
 
-  </main>
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
 
-  <!-- FOOTER -->
+            <p>
+                © 2026 Bonkisoft. All rights reserved.
+            </p>
 
-  <footer class="site-footer">
-
-    <div class="container footer-inner">
-
-      <span class="footer-brand">
-        BONKISOFT · GAMES & APPS
-      </span>
-
-      <span>
-        © 2026 Bonkisoft. All rights reserved.
-      </span>
-
-    </div>
-
-  </footer>
+        </div>
+    </footer>
 
 </body>
-  </html>
-  
+</html>
