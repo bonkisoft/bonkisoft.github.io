@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta name="description" content="Bonkisoft — Games & Apps. Independent game development studio creating games and digital experiences.">
+
+  <title>Bonkisoft — Games & Apps</title>
+
+  <link rel="icon" type="image/png" href="assets/bonkisoft-logo.png">
+
+  <style>
+    :root {
+      --red: #ed101b;
+      --ink: #292929;
+      --muted: #686868;
+      --line: #e8e8e8;
+      --paper: #ffffff;
+      --soft: #f7f7f7;
+      --content: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--content), calc(100% - 44px));
+      margin-inline: auto;
+    }
+
+    /* HEADER */
+
+    .site-header {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: 172px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: .94rem;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .nav-links .nav-cta {
+      border: 1px solid var(--red);
+      border-radius: 999px;
+      padding: 9px 18px;
+      color: var(--red);
+    }
+
+    .nav-links .nav-cta:hover {
+      color: #fff;
+      background: var(--red);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 28px 0 0;
+    }
+
+    .hero-art {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    /* INTRO */
+
+    .intro {
+      max-width: 760px;
+      margin: 58px auto 66px;
+      text-align: center;
+      padding: 0 18px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .76rem;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.35rem);
+      letter-spacing: -.045em;
+      line-height: 1.12;
+      margin: 0 0 18px;
+      font-weight: 700;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.14rem);
+      margin: 0;
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 66px 0;
+    }
+
+    .section-soft {
+      background: var(--soft);
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin: 0 auto 34px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.65rem, 3vw, 2.25rem);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      margin: 0 0 10px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+
+    .about-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      color: #555;
+      font-size: 1.04rem;
+    }
+
+    /* GAME CARD */
+
+    .game-card {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      padding: 30px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.045);
+    }
+
+    .game-card h3 {
+      margin: 0 0 7px;
+      font-size: 1.45rem;
+      letter-spacing: -.02em;
+    }
+
+    .game-card p {
+      margin: 0 0 17px;
+      color: var(--muted);
+    }
+
+    .play-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 19px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .play-link:hover {
+      background: #c90c16;
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER */
+
+    .site-footer {
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: #777;
+      font-size: .88rem;
+    }
+
+    .footer-brand {
+      color: #444;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(var(--content), calc(100% - 28px));
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .brand img {
+        width: 142px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a {
+        font-size: .84rem;
+      }
+
+      .nav-links .nav-cta {
+        padding: 7px 11px;
+      }
+
+      .hero {
+        padding-top: 14px;
+      }
+
+      .intro {
+        margin: 40px auto 48px;
+      }
+
+      .section {
+        padding: 48px 0;
+      }
+
+      .game-card {
+        padding: 20px;
+        border-radius: 14px;
+      }
+
+      .game-card h3 {
+        font-size: 1.15rem;
+      }
+
+      .game-card p {
+        font-size: .92rem;
+      }
+
+      .play-link {
+        font-size: .9rem;
+        min-height: 40px;
+        padding: 8px 13px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+    <div class="container nav">
+
+      <a class="brand" href="#top" aria-label="Bonkisoft home">
+        <img
+          src="assets/bonkisoft-logo.png"
+          alt="Bonkisoft">
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#games">Games</a>
+        <a class="nav-cta" href="#games">
+          Discover our game
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+
+    <section class="hero container" aria-label="Bonkisoft brand">
+
+      <img
+        class="hero-art"
+        src="assets/bonkisoft-header.png"
+        alt="Bonkisoft Games & Apps">
+
+    </section>
+
+    <!-- INTRO -->
+
+    <section class="intro">
+
+      <p class="eyebrow">Games & Apps</p>
+
+      <h1>
+        Ideas brought to life through games.
+      </h1>
+
+      <p>
+        Bonkisoft is an independent game and app
+        development studio focused on creating
+        enjoyable, accessible digital experiences.
+      </p>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="section section-soft" id="about">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">Who we are</p>
+
+          <h2>About Bonkisoft</h2>
+
+        </div>
+
+        <p class="about-copy">
+          We create games and applications with an
+          emphasis on thoughtful design, engaging
+          experiences and attention to detail.
+          Our goal is to make digital experiences
+          that are enjoyable to explore and easy
+          to access.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- GAMES -->
+
+    <section class="section" id="games">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">Explore</p>
+
+          <h2>Our Games</h2>
+
+          <p>Discover our available game.</p>
+
+        </div>
+
+        <article class="game-card">
+
+          <h3>Otter’s Puzzle</h3>
+
+          <p>
+            A relaxing mobile sliding puzzle game.
+            Move the tiles, solve the picture and
+            enjoy the challenge.
+          </p>
+
+          <a
+            class="play-link"
+            href="https://play.google.com/store/apps/details?id=com.bonkisoft.otterspuzzle"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Get it on Google Play
+
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <span class="footer-brand">
+        BONKISOFT · GAMES & APPS
+      </span>
+
+      <span>
+        © 2026 Bonkisoft. All rights reserved.
+      </span>
+
+    </div>
+
+  </footer>
+
+</body>
+  </html>
+  
